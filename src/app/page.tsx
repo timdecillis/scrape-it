@@ -3,8 +3,9 @@ const path = require("path");
 const fs = require("fs");
 
 export default async function Home() {
-  const filepath =
-    "/Users/theresebataclan/Desktop/Projects/scrape-it/files/basquiat-paintings.html";
+  const filepath = path.join(process.cwd(), "files/basquiat-paintings.html");
+  console.log("path:", filepath);
+
   const html = fs.readFileSync(filepath, "utf8");
   const data = await loadAndExtractFromHTML(html);
 
