@@ -39,7 +39,18 @@ export default async function Home() {
   return (
     <div>
       {data ? (
-        data.map((artwork, i) => <div key={i}>{artwork.name}</div>)
+        data.map((artwork, i) => {
+          let year;
+          if (artwork.extensions) {
+            year = artwork.extensions[0];
+          }
+          return (
+            <div key={i}>
+              {artwork.name}
+              {year && `, ${year}`}
+            </div>
+          );
+        })
       ) : (
         <p>Loading...</p>
       )}
