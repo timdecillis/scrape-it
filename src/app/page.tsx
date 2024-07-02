@@ -22,11 +22,7 @@ export default async function Home() {
                 {year && `, ${year}`}
               </div>
               <div>link: {artwork.link.slice(-5)}</div>
-              <div>
-                {artwork.image
-                  ? `image: ${artwork.image.slice(-5)}`
-                  : artwork.image}
-              </div>
+              <div>{artwork.image && `image: ${artwork.image.slice(-5)}`}</div>
             </>
           );
         })
