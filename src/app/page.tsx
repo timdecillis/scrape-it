@@ -16,10 +16,13 @@ export default async function Home() {
             year = artwork.extensions[0];
           }
           return (
-            <div key={i}>
-              {artwork.name}
-              {year && `, ${year}`}
-            </div>
+            <>
+              <div key={i}>
+                {artwork.name}
+                {year && `, ${year}`}
+              </div>
+              <div>{artwork.link.slice(-5)}</div>
+            </>
           );
         })
       ) : (
