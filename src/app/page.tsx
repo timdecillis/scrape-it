@@ -5,6 +5,8 @@ import { SyntheticEvent, useState } from "react";
 
 export default async function Home() {
   const [term, setTerm] = useState("");
+  const [artworks, setArtworks] = useState([]);
+
   const filepath = path.join(process.cwd(), `files/${term}-paintings.html`);
   const html = fs.readFileSync(filepath, "utf8");
   const data = await loadAndExtractFromHTML(html);
