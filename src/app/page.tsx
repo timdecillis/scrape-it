@@ -18,8 +18,8 @@ export default async function Home() {
           return (
             <>
               <div key={i}>
-                {i + 1}.)
-                {artwork.name}
+                {i + 1}.){' '}
+                 {artwork.name}
                 {year && `, ${year}`}
               </div>
               <div>link: {artwork.link.slice(-5)}</div>
