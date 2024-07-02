@@ -5,12 +5,17 @@ const path = require("path");
 const fs = require("fs");
 import { SyntheticEvent, useState } from "react";
 
-interface Artwork {}
+interface Artwork {
+  name: string;
+  extensions?: string[];
+  link: string;
+  image: string;
+}
 
 type PersonArray = [{ name: string }, { car: string }];
 
 export default function Home() {
-  const [artworks, setArtworks] = useState<any[]>([]);
+  const [artworks, setArtworks] = useState<Artwork[]>([]);
 
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
