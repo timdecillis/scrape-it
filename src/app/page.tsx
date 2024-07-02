@@ -9,11 +9,15 @@ export default async function Home() {
 
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
-    const filepath = path.join(process.cwd(), `files/${term}-paintings.html`);
-    const html = fs.readFileSync(filepath, "utf8");
-    const data = await loadAndExtractFromHTML(html);
     const inputElement = e.target as HTMLInputElement;
-    setTerm(inputElement.value);
+
+    const filepath = path.join(
+      process.cwd(),
+      `files/${inputElement}-paintings.html`
+    );
+    const html = fs.readFileSync(filepath, "utf8");
+
+    return await loadAndExtractFromHTML(html);
   };
 
   return (
@@ -25,3 +29,24 @@ export default async function Home() {
     </div>
   );
 }
+
+// {artworks.length ? (
+//   artworks.map((artwork, i) => {
+//     let year;
+//     if (artwork.extensions) {
+//       year = artwork.extensions[0];
+//     }
+//     return (
+//       <>
+//         <div key={i}>
+//           {i + 1}.) {artwork.name}
+//           {year && `, ${year}`}
+//         </div>
+//         <div>link: {artwork.link.slice(-5)}</div>
+//         <div>{artwork.image && `image: ${artwork.image.slice(-5)}`}</div>
+//       </>
+//     );
+//   })
+// ) : (
+//   <p>Loading...</p>
+// )}
