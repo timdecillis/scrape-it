@@ -23,8 +23,8 @@ export default async function Home() {
         <input type="text" />
         <input type="submit" />
       </form>
-      {data ? (
-        data.map((artwork, i) => {
+      {artworks.length ? (
+        artworks.map((artwork, i) => {
           let year;
           if (artwork.extensions) {
             year = artwork.extensions[0];
