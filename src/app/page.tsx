@@ -1,7 +1,7 @@
 import { loadAndExtractFromHTML } from "../../server/scraper/index";
 const path = require("path");
 const fs = require("fs");
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 
 export default async function Home() {
   const [term, setTerm] = useState("");
@@ -9,9 +9,10 @@ export default async function Home() {
   const html = fs.readFileSync(filepath, "utf8");
   const data = await loadAndExtractFromHTML(html);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    setTerm(e.target.value);
+    const inputElement = e.target as HTMLInputElement;
+    setTerm(inputElement.value);
   };
 
   return (
