@@ -9,6 +9,11 @@ export default async function Home() {
   const html = fs.readFileSync(filepath, "utf8");
   const data = await loadAndExtractFromHTML(html);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setTerm(e.target.value);
+  };
+
   return (
     <div>
       <form>
