@@ -1,9 +1,11 @@
+"use client";
+
 import { loadAndExtractFromHTML } from "../../server/scraper/index";
 const path = require("path");
 const fs = require("fs");
 import { SyntheticEvent, useState } from "react";
 
-export default async function Home() {
+export default function Home() {
   const [term, setTerm] = useState("");
   const [artworks, setArtworks] = useState([]);
 
@@ -16,8 +18,9 @@ export default async function Home() {
       `files/${inputElement}-paintings.html`
     );
     const html = fs.readFileSync(filepath, "utf8");
-
-    return await loadAndExtractFromHTML(html);
+    const data = await loadAndExtractFromHTML(html);
+    console.log("data:", data);
+    return data;
   };
 
   return (
