@@ -5,8 +5,12 @@ const path = require("path");
 const fs = require("fs");
 import { SyntheticEvent, useState } from "react";
 
+interface Artwork {}
+
+type PersonArray = [{ name: string }, { car: string }];
+
 export default function Home() {
-  const [artworks, setArtworks] = useState([]);
+  const [artworks, setArtworks] = useState<any[]>([]);
 
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -19,7 +23,7 @@ export default function Home() {
     const html = fs.readFileSync(filepath, "utf8");
     const data = await loadAndExtractFromHTML(html);
     console.log("data:", data);
-    setArtworks(data)
+    setArtworks(data);
   };
 
   return (
