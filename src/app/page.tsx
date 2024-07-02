@@ -6,7 +6,6 @@ const fs = require("fs");
 import { SyntheticEvent, useState } from "react";
 
 export default function Home() {
-  const [term, setTerm] = useState("");
   const [artworks, setArtworks] = useState([]);
 
   const handleSubmit = async (e: SyntheticEvent) => {
@@ -20,7 +19,7 @@ export default function Home() {
     const html = fs.readFileSync(filepath, "utf8");
     const data = await loadAndExtractFromHTML(html);
     console.log("data:", data);
-    return data;
+    setArtworks(data)
   };
 
   return (
