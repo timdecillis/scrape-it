@@ -17,7 +17,7 @@ export default async function Home() {
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="text" />
         <input type="submit" />
       </form>
