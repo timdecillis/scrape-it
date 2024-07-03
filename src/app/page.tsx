@@ -1,5 +1,3 @@
-const path = require("path");
-const fs = require("fs");
 import { loadAndExtractFromHTML } from "../../server/scraper/index";
 
 import { SyntheticEvent, useState } from "react";
@@ -17,9 +15,8 @@ export default function Home() {
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
     const inputElement = e.target as HTMLInputElement;
-    const filepath = path.join(process.cwd(), `files/${inputElement}-paintings.html`);
-    const htmlContent = fs.readFileSync(filepath, "utf8");
-    const data = await loadAndExtractFromHTML(htmlContent);
+
+    const data = await loadAndExtractFromHTML(inputElement);
     console.log("data:", data);
     setArtworks(data);
   };
