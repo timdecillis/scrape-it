@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+import { SyntheticEvent } from "react";
 
 import { loadAndExtractFromHTML } from "../../server/scraper/index";
 
@@ -11,15 +12,12 @@ interface Artwork {
 }
 
 export default function Home() {
-  const [artworks, setArtworks] = useState<Artwork[]>([]);
-
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
     const inputElement = e.target as HTMLInputElement;
 
     const data = await loadAndExtractFromHTML(inputElement);
     console.log("data:", data);
-    setArtworks(data);
   };
 
   return (
