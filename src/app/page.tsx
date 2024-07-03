@@ -1,6 +1,7 @@
-import { loadAndExtractFromHTML } from "../../server/scraper/index";
+const path = require("path");
+const fs = require("fs");
 
-import { SyntheticEvent, useState } from "react";
+import { loadAndExtractFromHTML } from "../../server/scraper/index";
 
 interface Artwork {
   name: string;
