@@ -1,14 +1,11 @@
 const cheerio = require("cheerio");
-const path = require("path");
-const fs = require("fs");
+
 
 const { loadHTML } = require("./loader.js");
 const { extractHTMLInfo } = require("./extractor.js");
 
-const loadAndExtractFromHTML = async (inputElement) => {
+const loadAndExtractFromHTML = async (htmlContent) => {
 
-  const filepath = path.join(process.cwd(), `files/${inputElement}-paintings.html`);
-  const htmlContent = fs.readFileSync(filepath, "utf8");
 
   const placeholderSrcs = [];
   const $ = cheerio.load(htmlContent);
