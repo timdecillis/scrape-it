@@ -20,6 +20,12 @@ export default async function Home() {
   //   console.log("data:", data);
   // };
 
+
+  const filepath = path.join(process.cwd(), `files/basquiat-paintings.html`);
+  const htmlContent = fs.readFileSync(filepath, "utf8");
+
+  const artworks = await loadAndExtractFromHTML()
+
   return (
     <div>
       {artworks.length ? (
