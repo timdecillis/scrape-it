@@ -1,24 +1,9 @@
 const path = require("path");
 const fs = require("fs");
-import { SyntheticEvent } from "react";
 
 import { loadAndExtractFromHTML } from "../../server/scraper/index";
 
-interface Artwork {
-  name: string;
-  extensions?: string[];
-  link: string;
-  image: string;
-}
-
 export default async function Home() {
-  // const handleSubmit = async (e: SyntheticEvent) => {
-  //   e.preventDefault();
-  //   const inputElement = e.target as HTMLInputElement;
-
-  //   const data = await loadAndExtractFromHTML(inputElement);
-  //   console.log("data:", data);
-  // };
 
   const filepath = path.join(process.cwd(), `files/basquiat-paintings.html`);
   const htmlContent = fs.readFileSync(filepath, "utf8");
