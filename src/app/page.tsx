@@ -11,6 +11,7 @@ export default async function Home() {
 
   return (
     <div>
+      <h1>Enter your search term</h1>
       <form>
         <input type="text" />
         <input type="submit"/>
