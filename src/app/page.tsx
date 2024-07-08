@@ -12,6 +12,7 @@ export default async function Home() {
 
   return (
     <div>
+      <h1>Artworks</h1>
       {artworks.length ? (
         artworks.map((artwork, i) => {
           let year;
