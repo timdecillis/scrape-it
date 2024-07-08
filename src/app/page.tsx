@@ -4,7 +4,6 @@ const fs = require("fs");
 import { loadAndExtractFromHTML } from "../../server/scraper/index";
 
 export default async function Home() {
-
   const filepath = path.join(process.cwd(), `files/basquiat-paintings.html`);
   const htmlContent = fs.readFileSync(filepath, "utf8");
 
@@ -12,6 +11,9 @@ export default async function Home() {
 
   return (
     <div>
+      <form>
+        <input type="text" />
+      </form>
       <h1>Artworks</h1>
       {artworks.length ? (
         artworks.map((artwork, i) => {
