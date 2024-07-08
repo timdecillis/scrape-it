@@ -13,6 +13,7 @@ export default async function Home() {
     <div>
       <form>
         <input type="text" />
+        <input type="submit"/>
       </form>
       <h1>Artworks</h1>
       {artworks.length ? (
