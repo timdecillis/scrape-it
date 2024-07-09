@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 
-import { loadAndExtractFromHTML } from "../../server/scraper/index";
+import { loadAndExtractFromHTML } from "../../lib/index";
 
 export default async function Home() {
   const filepath = path.join(process.cwd(), `files/basquiat-paintings.html`);
