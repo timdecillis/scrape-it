@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import { loadAndExtractFromHTML } from "../../lib/index";
-
 export default async function Home() {
 
 
