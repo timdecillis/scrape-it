@@ -1,16 +1,18 @@
-import { useEffect, useState } from 'react';
+"use client";
 
-export default async function Home() {
+import { useEffect, useState } from "react";
 
-
+export default function Home() {
   const [artworks, setArtworks] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('/api/scrape');
+      const response = await fetch("/api/scrape");
+      console.log('responded')
       const result = await response.json();
       setArtworks(result);
       // setLoading(false);
+      console.log("result:", result);
     }
 
     fetchData();
@@ -21,7 +23,7 @@ export default async function Home() {
       <h1>Enter your search term</h1>
       <form>
         <input type="text" />
-        <input type="submit"/>
+        <input type="submit" />
       </form>
       <h1>Artworks</h1>
       {/* {artworks.length ? (
