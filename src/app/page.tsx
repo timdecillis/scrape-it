@@ -1,13 +1,11 @@
-const path = require("path");
-const fs = require("fs");
+import { useEffect, useState } from 'react';
 
 import { loadAndExtractFromHTML } from "../../lib/index";
 
 export default async function Home() {
-  const filepath = path.join(process.cwd(), `files/basquiat-paintings.html`);
-  const htmlContent = fs.readFileSync(filepath, "utf8");
 
-  const artworks = await loadAndExtractFromHTML(htmlContent);
+
+  const [artworks, setArtworks] = useState([]);
 
   return (
     <div>
@@ -17,7 +15,7 @@ export default async function Home() {
         <input type="submit"/>
       </form>
       <h1>Artworks</h1>
-      {artworks.length ? (
+      {/* {artworks.length ? (
         artworks.map((artwork, i) => {
           let year;
           if (artwork.extensions) {
@@ -36,7 +34,7 @@ export default async function Home() {
         })
       ) : (
         <p>Loading...</p>
-      )}
+      )} */}
     </div>
   );
 }
