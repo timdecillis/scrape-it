@@ -7,6 +7,17 @@ export default async function Home() {
 
   const [artworks, setArtworks] = useState([]);
 
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('/api/scrape');
+      const result = await response.json();
+      setArtworks(result);
+      // setLoading(false);
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <div>
       <h1>Enter your search term</h1>
