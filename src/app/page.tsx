@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [artworks, setArtworks] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("/api/scrape");
-      console.log('responded')
       const result = await response.json();
+      console.log("result:", result);
       setArtworks(result);
       // setLoading(false);
       console.log("result:", result);
@@ -26,7 +27,7 @@ export default function Home() {
         <input type="submit" />
       </form>
       <h1>Artworks</h1>
-      {/* {artworks.length ? (
+      {artworks.length ? (
         artworks.map((artwork, i) => {
           let year;
           if (artwork.extensions) {
@@ -45,7 +46,7 @@ export default function Home() {
         })
       ) : (
         <p>Loading...</p>
-      )} */}
+      )}
     </div>
   );
 }

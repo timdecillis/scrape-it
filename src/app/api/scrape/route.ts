@@ -1,7 +1,7 @@
-import {  } from "../../../lib/index";
+import {  } from "../../../../lib/index";
 
 import { NextResponse } from 'next/server';
-import {loadAndExtractFromHTML} from '../../../lib/index';
+import {loadAndExtractFromHTML} from '../../../../lib/index';
 
 export async function GET() {
   try {
