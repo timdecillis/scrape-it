@@ -8,12 +8,13 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchData() {
+      setLoading(true)
       const response = await fetch("/api/scrape");
+
       const result = await response.json();
-      console.log("result:", result);
-      setArtworks(result);
+
+      // setArtworks(result);
       // setLoading(false);
-      console.log("result:", result);
     }
 
     fetchData();
@@ -27,7 +28,7 @@ export default function Home() {
         <input type="submit" />
       </form>
       <h1>Artworks</h1>
-      {artworks.length ? (
+      {/* {artworks.length ? (
         artworks.map((artwork, i) => {
           let year;
           if (artwork.extensions) {
@@ -46,7 +47,8 @@ export default function Home() {
         })
       ) : (
         <p>Loading...</p>
-      )}
+      )} */}
+      {loading && <p>Loading...</p>}
     </div>
   );
 }
